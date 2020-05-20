@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFac.Model", "AutoFac.Model", "{9F1D3B83-0E9B-4CAB-92EB-21125D850308}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFac.Repository", "AutoFac.Repository", "{68C1F3AF-8527-4C83-AD58-19A42F2F3B33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFac.Service", "AutoFac.Service", "{B0802195-6AE5-420D-A70E-BD283E114833}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFac.Web", "AutoFac.Web", "{ECC7FF53-0644-4441-A167-DAEC0FC519F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac.Model", "AutoFac.Model\AutoFac.Model.csproj", "{C3388597-2F61-4E98-ACD4-A7433EAF5BE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac.Repository", "AutoFac.Repository\AutoFac.Repository.csproj", "{2E9308DB-EECF-416E-8263-FF184037399A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac.Service", "AutoFac.Service\AutoFac.Service.csproj", "{DE352D0B-47F4-4A6B-A600-060753722E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{D9FC57D8-9FD9-4E1B-B64E-5D7F22951C12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{16BD5A89-E2C0-4DBD-B63E-1B24F07CD383}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71B681E6-FF70-4179-9108-DD7E298E2E6D}"
+	ProjectSection(SolutionItems) = preProject
+		Remark.txt = Remark.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoFac.Utility", "AutoFac.Utility", "{C8532471-AE85-4C06-AAE9-EDF32B8C88C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac.DBUtility", "AutoFac.Utility\AutoFac.DBUtility.csproj", "{83483AB0-6EEC-4A9D-992F-52CA85B492D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFac.Common", "AutoFac.Common\AutoFac.Common.csproj", "{D39347E5-4909-4A55-BF33-21E2A2998056}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3388597-2F61-4E98-ACD4-A7433EAF5BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3388597-2F61-4E98-ACD4-A7433EAF5BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3388597-2F61-4E98-ACD4-A7433EAF5BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3388597-2F61-4E98-ACD4-A7433EAF5BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9308DB-EECF-416E-8263-FF184037399A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9308DB-EECF-416E-8263-FF184037399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9308DB-EECF-416E-8263-FF184037399A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9308DB-EECF-416E-8263-FF184037399A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE352D0B-47F4-4A6B-A600-060753722E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE352D0B-47F4-4A6B-A600-060753722E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE352D0B-47F4-4A6B-A600-060753722E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE352D0B-47F4-4A6B-A600-060753722E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9FC57D8-9FD9-4E1B-B64E-5D7F22951C12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9FC57D8-9FD9-4E1B-B64E-5D7F22951C12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9FC57D8-9FD9-4E1B-B64E-5D7F22951C12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9FC57D8-9FD9-4E1B-B64E-5D7F22951C12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BD5A89-E2C0-4DBD-B63E-1B24F07CD383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BD5A89-E2C0-4DBD-B63E-1B24F07CD383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BD5A89-E2C0-4DBD-B63E-1B24F07CD383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BD5A89-E2C0-4DBD-B63E-1B24F07CD383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83483AB0-6EEC-4A9D-992F-52CA85B492D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83483AB0-6EEC-4A9D-992F-52CA85B492D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83483AB0-6EEC-4A9D-992F-52CA85B492D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83483AB0-6EEC-4A9D-992F-52CA85B492D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39347E5-4909-4A55-BF33-21E2A2998056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39347E5-4909-4A55-BF33-21E2A2998056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39347E5-4909-4A55-BF33-21E2A2998056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39347E5-4909-4A55-BF33-21E2A2998056}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3388597-2F61-4E98-ACD4-A7433EAF5BE7} = {9F1D3B83-0E9B-4CAB-92EB-21125D850308}
+		{2E9308DB-EECF-416E-8263-FF184037399A} = {68C1F3AF-8527-4C83-AD58-19A42F2F3B33}
+		{DE352D0B-47F4-4A6B-A600-060753722E17} = {B0802195-6AE5-420D-A70E-BD283E114833}
+		{D9FC57D8-9FD9-4E1B-B64E-5D7F22951C12} = {ECC7FF53-0644-4441-A167-DAEC0FC519F8}
+		{16BD5A89-E2C0-4DBD-B63E-1B24F07CD383} = {ECC7FF53-0644-4441-A167-DAEC0FC519F8}
+		{83483AB0-6EEC-4A9D-992F-52CA85B492D5} = {C8532471-AE85-4C06-AAE9-EDF32B8C88C1}
+		{D39347E5-4909-4A55-BF33-21E2A2998056} = {C8532471-AE85-4C06-AAE9-EDF32B8C88C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {587F839A-BE43-41D7-B5CC-BC2DB4582D37}
+	EndGlobalSection
+EndGlobal

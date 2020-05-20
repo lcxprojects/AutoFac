@@ -1,0 +1,2 @@
+控制反转（IoC/Inverse Of Control）:   调用者不再创建被调用者的实例，由autofac框架实现（容器创建）所以称为控制反转。
+依赖注入(DI/Dependence injection) :   容器创建好实例后再注入调用者称为依赖注入。
