@@ -12,7 +12,7 @@ using Dapper;
 
 namespace AutoFac.Repository
 {
-    public class UserRepository : IUserRepository
+    public partial class UserRepository : IUserRepository
     {
         public List<User> GetModelList(int isEnabled = 1)
         {

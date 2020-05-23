@@ -7,7 +7,7 @@ using AutoFac.Model;
 
 namespace AutoFac.Service.IService
 {
-    public interface IRoleService
+    public interface IRoleService : IBaseService<RoleModel>
     {
     }
 }

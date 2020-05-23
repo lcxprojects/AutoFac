@@ -1,18 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using Dapper.Contrib.Extensions;
 
 namespace AutoFac.DBUtility
 {
     public class DapperHelper
     {
-        //数据库连接字符串(web.config来配置)
-        public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DapperSQLConn"].ConnectionString;
+        private static SqlConnection _sqlConnection = null;
+        private static readonly object LockConn = new object();
+
+        public static SqlConnection DbConn
+        {
+            get
+            {
+                if (_sqlConnection == null)
+                {
+                    lock (LockConn)
+                    {
+                        if (_sqlConnection == null)
+                        {
+                            var connectionString = ConfigurationManager.ConnectionStrings["DapperSQLConn"].ConnectionString;
+                            _sqlConnection = new SqlConnection(connectionString);
+                        }
+                    }
+                }
+                return _sqlConnection;
+            }
+        }
 
         /// <summary>
         /// 添加数据
@@ -23,16 +44,13 @@ namespace AutoFac.DBUtility
         /// <returns></returns>
         public static bool Add<T>(string sql, T model)
         {
-            using (var conn = new SqlConnection(ConnectionString))
+            try
             {
-                try
-                {
-                    return conn.Execute(sql, model) > 0;
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                return DbConn.Execute(sql, model) > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -45,30 +63,24 @@ namespace AutoFac.DBUtility
         /// <returns></returns>
         public static bool Update<T>(string sql, T model)
         {
-            using (var conn = new SqlConnection(ConnectionString))
+            try
             {
-                try
-                {
-                    return conn.Execute(sql, model) > 0;
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                return DbConn.Execute(sql, model) > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
         public static bool Update(string sql, string id)
         {
-            using (var conn = new SqlConnection(ConnectionString))
+            try
             {
-                try
-                {
-                    return conn.Execute(sql, new { id = id }) > 0;
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                return DbConn.Execute(sql, new { id = id }) > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -80,16 +92,13 @@ namespace AutoFac.DBUtility
         /// <returns></returns>
         public static bool Delete(string sql, string id)
         {
-            using (var conn = new SqlConnection(ConnectionString))
+            try
             {
-                try
-                {
-                    return conn.Execute(sql, new { id = id }) > 0;
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                return DbConn.Execute(sql, new { id = id }) > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -102,19 +111,16 @@ namespace AutoFac.DBUtility
         /// <returns></returns>
         public static T GetModel<T>(string sql, object para)
         {
-            using (var conn = new SqlConnection(ConnectionString))
+            try
             {
-                try
-                {
-                    if (para != null)
-                        return conn.QuerySingle<T>(sql, para);
-                    else
-                        return conn.QuerySingle<T>(sql);
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                if (para != null)
+                    return DbConn.QuerySingle<T>(sql, para);
+                else
+                    return DbConn.QuerySingle<T>(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -127,22 +133,25 @@ namespace AutoFac.DBUtility
         /// <returns></returns>
         public static List<T> GetModelList<T>(string sql, object para)
         {
-            using (var conn = new SqlConnection(ConnectionString))
+            try
             {
-                try
-                {
-                    if (para != null)
-                        return conn.Query<T>(sql, para).ToList();
-                    else
-                        return conn.Query<T>(sql).ToList();
-                }
-                catch (SqlException ex)
-                {
-                    throw new Exception(ex.Message);
-                }
+                if (para != null)
+                    return DbConn.Query<T>(sql, para).ToList();
+                else
+                    return DbConn.Query<T>(sql).ToList();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
+
+        #region  2020年5月21日 14:29:22  引用Dapper.Contrib.Extensions
+        /*
+         * 需要修改实体
+         */
+        #endregion
 
     }
 }

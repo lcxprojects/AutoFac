@@ -7,7 +7,7 @@ using AutoFac.Model;
 
 namespace AutoFac.Service.IService
 {
-    public interface IUserService
+    public interface IUserService : IBaseService<User>
     {
         List<User> GetModelList(int isEnabled = 1);
 

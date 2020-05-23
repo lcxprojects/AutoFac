@@ -14,6 +14,11 @@ namespace AutoFac.Repository.IRepository
 
         bool Delete(string id);
 
+        //bool Insert(T model);
+        //bool Update(T model);
+        //bool Delete(T model);
+        //T Get(object id);
+
 
     }
 }

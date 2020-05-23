@@ -8,7 +8,7 @@ using AutoFac.Service.IService;
 
 namespace AutoFac.Service
 {
-    public class BaseService<T> : IBaseService<T>
+    public  class BaseService<T> : IBaseService<T>
     {
         private readonly IBaseRepository<T> _baseRepository;
 
@@ -26,7 +26,6 @@ namespace AutoFac.Service
         {
             return _baseRepository.GetModelList();
         }
-
 
     }
 }

@@ -9,11 +9,11 @@ using AutoFac.Service.IService;
 
 namespace AutoFac.Service
 {
-    public class RoleService : IRoleService
+    public class RoleService : BaseService<RoleModel>, IRoleService
     {
         private readonly IRoleRepository _roleRepository;
 
-        public RoleService(IRoleRepository roleRepository)
+        public RoleService(IRoleRepository roleRepository, IBaseRepository<RoleModel> baseRepository) : base(baseRepository)
         {
             _roleRepository = roleRepository;
         }

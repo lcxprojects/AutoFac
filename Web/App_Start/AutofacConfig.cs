@@ -66,8 +66,10 @@ namespace Web.App_Start
 
             //注册泛型仓储
             builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>));
-            builder.RegisterGeneric(typeof(BaseService<>)).As(typeof(IBaseService<>));
+            //builder.RegisterGeneric(typeof(BaseService<>)).As(typeof(IBaseService<>));
 
+            //注册log模块
+            //builder.RegisterModule(new LoggingModule());
 
         }
 

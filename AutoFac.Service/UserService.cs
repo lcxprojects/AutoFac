@@ -10,11 +10,11 @@ using AutoFac.Service.IService;
 
 namespace AutoFac.Service
 {
-    public class UserService : IUserService
+    public class UserService : BaseService<User>, IUserService
     {
         private readonly IUserRepository _userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IBaseRepository<User> baseRepository) : base(baseRepository)
         {
             this._userRepository = userRepository;
         }
