@@ -9,7 +9,7 @@ using AutoFac.Service.IService;
 
 namespace AutoFac.Service
 {
-    public class RoleService : BaseService<RoleModel>, IRoleService
+    public partial class RoleService : BaseService<RoleModel>, IRoleService
     {
         private readonly IRoleRepository _roleRepository;
 

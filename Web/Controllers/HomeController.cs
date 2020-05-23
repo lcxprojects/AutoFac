@@ -25,6 +25,8 @@ namespace Web.Controllers
 
             var userList = _userService.GetModelList();
 
+            var umodel = _userService.Get("085AC7C7-94BE-4A41-93C7-C207939714B9");
+
             return View();
         }
 

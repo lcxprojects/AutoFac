@@ -10,7 +10,7 @@ using Dapper.Contrib.Extensions;
 
 namespace AutoFac.Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T>
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         public bool Delete(string id)
         {
@@ -32,20 +32,16 @@ namespace AutoFac.Repository
             return DapperHelper.GetModelList<T>(sql, null);
         }
 
-        //public bool Insert(T model)
-        //{
-        //    using (var conn = DapperHelper.GetSqlConnectionInstance())
-        //    {
-        //        try
-        //        {
-        //            return conn.Insert(model) > 0;
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
+        public bool Insert(T model)
+        {
+            //DapperHelper.Add(model);
+            return false;
+        }
+
+        public T Get(object id)
+        {
+            return DapperHelper.Get<T>(id);
+        }
 
         //public bool Update(T model)
         //{

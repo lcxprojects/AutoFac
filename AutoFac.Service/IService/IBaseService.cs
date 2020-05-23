@@ -12,5 +12,7 @@ namespace AutoFac.Service.IService
 
         List<T> GetModelList();
 
+        T Get(object id);
+
     }
 }

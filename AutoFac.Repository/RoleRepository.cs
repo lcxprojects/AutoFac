@@ -8,7 +8,7 @@ using AutoFac.Repository.IRepository;
 
 namespace AutoFac.Repository
 {
-    public class RoleRepository : IRoleRepository
+    public partial class RoleRepository : IRoleRepository
     {
 
     }

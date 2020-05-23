@@ -10,7 +10,7 @@ using AutoFac.Service.IService;
 
 namespace AutoFac.Service
 {
-    public class UserService : BaseService<User>, IUserService
+    public partial class UserService : BaseService<User>, IUserService
     {
         private readonly IUserRepository _userRepository;
 

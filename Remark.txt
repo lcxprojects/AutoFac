@@ -15,3 +15,5 @@ Web层
 
 Dapper
 需要引用扩展Dapper.Contrib.Extensions(需要修改实体，目前不用)
+
+DapperExtensions自定义映射配置

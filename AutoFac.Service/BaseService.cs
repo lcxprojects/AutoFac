@@ -8,13 +8,18 @@ using AutoFac.Service.IService;
 
 namespace AutoFac.Service
 {
-    public  class BaseService<T> : IBaseService<T>
+    public class BaseService<T> : IBaseService<T>
     {
         private readonly IBaseRepository<T> _baseRepository;
 
         public BaseService(IBaseRepository<T> baseRepository)
         {
             _baseRepository = baseRepository;
+        }
+
+        public T Get(object id)
+        {
+            return _baseRepository.Get(id);
         }
 
         public T GetModel(string id)

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
@@ -146,11 +147,52 @@ namespace AutoFac.DBUtility
             }
         }
 
+        /// <summary>
+        /// dapper通用分页方法
+        /// </summary>
+        /// <typeparam name="T">泛型集合实体类</typeparam>
+        /// <param name="files">列</param>
+        /// <param name="tableName">表</param>
+        /// <param name="where">条件</param>
+        /// <param name="orderby">排序</param>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">当前页显示条数</param>
+        /// <param name="total">结果集总数</param>
+        /// <returns></returns>
+        public static List<T> GetPageList<T>(string files, string tableName, string where, string orderby, int pageIndex, int pageSize, out int total)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("SELECT COUNT(1) FROM {0} where {1};", tableName, where);
+            sb.AppendFormat(@"SELECT  {0}
+                                FROM(SELECT ROW_NUMBER() OVER(ORDER BY {3}) AS RowNum,{0}
+                                          FROM  {1}
+                                          WHERE {2}
+                                        ) AS result
+                                WHERE BETWEEN  {4}  AND {5} 
+                                ORDER BY {3}", files, tableName, where, orderby, (pageIndex - 1) * pageSize + 1, pageIndex * pageSize);
+            using (var reader = DbConn.QueryMultiple(sb.ToString()))
+            {
+                total = reader.ReadFirst<int>();
+                return reader.Read<T>().ToList();
+            }
+        }
+
 
         #region  2020年5月21日 14:29:22  引用Dapper.Contrib.Extensions
         /*
          * 需要修改实体
          */
+
+        public static void Add<T>(T model) where T : class
+        {
+            DbConn.Insert(model);
+        }
+
+        public static T Get<T>(object id) where T : class
+        {
+            return DbConn.Get<T>(id);
+        }
+
         #endregion
 
     }
