@@ -1,11 +1,13 @@
 ﻿using System;
+using DapperExtensions.Mapper;
+
 namespace AutoFac.Model
 {
     /// <summary>
     /// 角色表
     /// </summary>
     [Serializable]
-    public partial class User : BaseMapping<User>
+    public class User
     {
         public User()
         { }
@@ -697,5 +699,18 @@ namespace AutoFac.Model
         #endregion Model
 
     }
+
+    //[Serializable]
+    //public class UserORMMapper : ClassMapper<User>
+    //{
+    //    public UserORMMapper()
+    //    {
+    //        base.Table("User");
+    //        //Map(f => f.Remark1).Ignore();//设置忽略 
+    //        //Map(f => f.Name).Key(KeyType.Identity);//设置主键  (如果主键名称不包含字母“ID”，请设置) 
+    //        AutoMap();
+    //    }
+    //}
+
 }
 

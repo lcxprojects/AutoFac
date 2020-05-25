@@ -55,7 +55,6 @@
     <Compile Include="AssCommentAppeal.cs" />
     <Compile Include="AssInsurance.cs" />
     <Compile Include="AssSuggestPlace.cs" />
-    <Compile Include="BaseMapping.cs" />
     <Compile Include="Browse.cs" />
     <Compile Include="CarModel.cs" />
     <Compile Include="ChatHistory.cs" />

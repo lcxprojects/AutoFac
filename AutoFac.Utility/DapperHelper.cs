@@ -8,7 +8,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using Dapper.Contrib.Extensions;
+using DapperExtensions;
 
 namespace AutoFac.DBUtility
 {
@@ -178,10 +178,7 @@ namespace AutoFac.DBUtility
         }
 
 
-        #region  2020年5月21日 14:29:22  引用Dapper.Contrib.Extensions
-        /*
-         * 需要修改实体
-         */
+        #region  2020年5月21日 14:29:22  引用DapperExtensions
 
         public static void Add<T>(T model) where T : class
         {
