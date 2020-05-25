@@ -50,7 +50,9 @@
     <Compile Include="IService\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoFac.Model\AutoFac.Model.csproj">
       <Project>{c3388597-2f61-4e98-acd4-a7433eaf5be7}</Project>

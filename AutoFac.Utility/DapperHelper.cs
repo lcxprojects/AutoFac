@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Permissions;
@@ -12,7 +13,7 @@ using DapperExtensions;
 
 namespace AutoFac.DBUtility
 {
-    public class DapperHelper
+    public class DapperHelper : IDisposable
     {
         private static SqlConnection _sqlConnection = null;
         private static readonly object LockConn = new object();
@@ -27,7 +28,8 @@ namespace AutoFac.DBUtility
                     {
                         if (_sqlConnection == null)
                         {
-                            var connectionString = ConfigurationManager.ConnectionStrings["DapperSQLConn"].ConnectionString;
+                            //var connectionString = ConfigurationManager.ConnectionStrings["DapperSQLConn"].ConnectionString;
+                            var connectionString = "data source=ha.51bc.cc,18433;Database=xmq_xzs;uid=sa;pwd=Aa@123!@#;Max Pool Size = 512;Min Pool Size=1;";
                             _sqlConnection = new SqlConnection(connectionString);
                         }
                     }
@@ -180,14 +182,22 @@ namespace AutoFac.DBUtility
 
         #region  2020年5月21日 14:29:22  引用DapperExtensions
 
-        public static void Add<T>(T model) where T : class
+        public static T Add<T>(T model) where T : class
         {
-            DbConn.Insert(model);
+            return DbConn.Insert(model);
         }
 
         public static T Get<T>(object id) where T : class
         {
             return DbConn.Get<T>(id);
+        }
+
+        public void Dispose()
+        {
+            if (DbConn != null)
+            {
+                DbConn.Dispose();
+            }
         }
 
         #endregion
