@@ -14,6 +14,17 @@ namespace AutoFac.Repository
 {
     public partial class UserRepository : IUserRepository
     {
+        //private readonly IBaseRepository<User> _baseRepository;
+        //public UserRepository(IBaseRepository<User> baseRepository)
+        //{
+        //    _baseRepository = baseRepository;
+        //}
+
+        //public User Get(object id)
+        //{
+        //    return _baseRepository.Get(id);
+        //}
+
         public List<User> GetModelList(int isEnabled = 1)
         {
             var sql = $"select * from [User] where IsEnabled=@IsEnabled ";

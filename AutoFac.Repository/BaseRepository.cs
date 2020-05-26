@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoFac.DBUtility;
 using AutoFac.Repository.IRepository;
-using Dapper.Contrib.Extensions;
+using DapperExtensions;
 
 namespace AutoFac.Repository
 {
@@ -34,8 +34,7 @@ namespace AutoFac.Repository
 
         public bool Insert(T model)
         {
-            //DapperHelper.Add(model);
-            return false;
+            return DapperHelper.Insert(model);
         }
 
         public T Get(object id)
@@ -43,51 +42,10 @@ namespace AutoFac.Repository
             return DapperHelper.Get<T>(id);
         }
 
-        //public bool Update(T model)
-        //{
-        //    using (var conn = DapperHelper.GetSqlConnectionInstance())
-        //    {
-        //        try
-        //        {
-        //            return conn.Update(model);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
-
-
-        //public bool Delete(T model)
-        //{
-        //    using (var conn = DapperHelper.GetSqlConnectionInstance())
-        //    {
-        //        try
-        //        {
-        //            return conn.Delete(model);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
-
-        //public T Get(object id)
-        //{
-        //    using (var conn = DapperHelper.GetSqlConnectionInstance())
-        //    {
-        //        try
-        //        {
-        //            return conn.Get<T>(id);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return null;
-        //        }
-        //    }
-        //}
+        public List<T> GetList(List<IPredicate> para, List<ISort> sort)
+        {
+            return DapperHelper.GetList<T>(para, sort);
+        }
 
 
     }

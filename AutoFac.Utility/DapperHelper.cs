@@ -13,7 +13,7 @@ using DapperExtensions;
 
 namespace AutoFac.DBUtility
 {
-    public class DapperHelper : IDisposable
+    public class DapperHelper
     {
         private static SqlConnection _sqlConnection = null;
         private static readonly object LockConn = new object();
@@ -36,6 +36,20 @@ namespace AutoFac.DBUtility
                 }
                 return _sqlConnection;
             }
+        }
+
+        public static string GetConnectionString()
+        {
+            var connString = "";
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return connString;
         }
 
         /// <summary>
@@ -182,9 +196,14 @@ namespace AutoFac.DBUtility
 
         #region  2020年5月21日 14:29:22  引用DapperExtensions
 
-        public static T Add<T>(T model) where T : class
+        public static bool Insert<T>(T model) where T : class
         {
             return DbConn.Insert(model);
+        }
+
+        public static bool Update<T>(T model) where T : class
+        {
+            return DbConn.Update(model);
         }
 
         public static T Get<T>(object id) where T : class
@@ -192,13 +211,21 @@ namespace AutoFac.DBUtility
             return DbConn.Get<T>(id);
         }
 
-        public void Dispose()
+        /// <summary>
+        /// 获取列表
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="para"></param>
+        /// <param name="sort"></param>
+        /// <returns></returns>
+        public static List<T> GetList<T>(List<IPredicate> para, List<ISort> sort) where T : class
         {
-            if (DbConn != null)
-            {
-                DbConn.Dispose();
-            }
+            if (para == null)
+                return DbConn.GetList<T>(null, sort).ToList();
+            else
+                return DbConn.GetList<T>(para, sort).ToList();
         }
+
 
         #endregion
 

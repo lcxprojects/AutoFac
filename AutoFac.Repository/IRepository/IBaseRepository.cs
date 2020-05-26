@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DapperExtensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,6 @@ namespace AutoFac.Repository.IRepository
         //bool Delete(T model);
         T Get(object id);
 
-
+        List<T> GetList(List<IPredicate> para, List<ISort> sort);
     }
 }

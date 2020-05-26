@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2E9308DB-EECF-416E-8263-FF184037399A}</ProjectGuid>
+    <ProjectGuid>{92519AC8-EC39-46D4-ABE5-DA33E20C734F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoFac.Repository</RootNamespace>
-    <AssemblyName>AutoFac.Repository</AssemblyName>
+    <RootNamespace>AutoFac.ORM</RootNamespace>
+    <AssemblyName>AutoFac.ORM</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,13 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
-    </Reference>
-    <Reference Include="DapperExtensions, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DapperExtensions.1.6.3\lib\net45\DapperExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,27 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRepository.cs" />
-    <Compile Include="IRepository\IBaseRepository.cs" />
-    <Compile Include="IRepository\IRoleRepository.cs" />
-    <Compile Include="IRepository\IUserRepository.cs" />
-    <Compile Include="RoleRepository.cs" />
-    <Compile Include="UserRepository.cs" />
+    <Compile Include="DbMasterSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AutoFac.Model\AutoFac.Model.csproj">
-      <Project>{c3388597-2f61-4e98-acd4-a7433eaf5be7}</Project>
-      <Name>AutoFac.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AutoFac.Utility\AutoFac.DBUtility.csproj">
-      <Project>{83483ab0-6eec-4a9d-992f-52ca85b492d5}</Project>
-      <Name>AutoFac.DBUtility</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

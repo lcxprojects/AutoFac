@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoFac.Repository.IRepository;
 using AutoFac.Service.IService;
+using DapperExtensions;
 
 namespace AutoFac.Service
 {
@@ -20,6 +21,11 @@ namespace AutoFac.Service
         public T Get(object id)
         {
             return _baseRepository.Get(id);
+        }
+
+        public List<T> GetList(List<IPredicate> para, List<ISort> sort)
+        {
+            return _baseRepository.GetList(para, sort);
         }
 
         public T GetModel(string id)

@@ -5,15 +5,21 @@
 
 2.架构
 
-Model层       实体层
-Repository层  仓储层
-Service层     服务层
+Model层       实体层，放数据库对应的实体类
+Repository层  数据访问接口层（ORM，主要是集成Dapper、DapperExtensions）
+Service层     服务具体实现层
 Utility层     公用层
-Web层      
+Web层         web层
 
 3.ORM 
 
 Dapper+DapperExtensions自定义映射配置
 需要引用扩展Dapper.Contrib.Extensions(需要修改实体，目前不用)
+
+
+技术点：
+　　1、asp.net mvc
+　　2、dapper 轻量高性能orm框架
+　　3、基于接口IService,IRepository，使用AutoFac IOC进行层之间的解耦
 
 

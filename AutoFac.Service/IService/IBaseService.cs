@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DapperExtensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace AutoFac.Service.IService
         List<T> GetModelList();
 
         T Get(object id);
+        List<T> GetList(List<IPredicate> para, List<ISort> sort);
+
 
     }
 }

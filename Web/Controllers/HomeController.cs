@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoFac.Model;
 using AutoFac.Service.IService;
+using DapperExtensions;
 
 namespace Web.Controllers
 {
@@ -26,6 +27,8 @@ namespace Web.Controllers
             var userList = _userService.GetModelList();
 
             var umodel = _userService.Get("085AC7C7-94BE-4A41-93C7-C207939714B9");
+
+            var userlist = _userService.GetList(new List<IPredicate>() { Predicates.Field<User>(u => u.IsEnabled, Operator.Eq, 1) }, new List<ISort>() { new Sort { PropertyName = "", Ascending = false } });
 
             return View();
         }
